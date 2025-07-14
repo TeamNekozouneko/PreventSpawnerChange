@@ -16,3 +16,5 @@ commands:
 permissions:
   preventspawnerchange.reload:
     default: op
+  preventspawnerchange.bypass:
+    default: op

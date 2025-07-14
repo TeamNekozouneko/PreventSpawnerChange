@@ -20,6 +20,8 @@ class PlayerInteractEvent : Listener {
         val itemMeta: ItemMeta = item.itemMeta ?: return
         val clickedBlock: Block = event.clickedBlock ?: return
 
+        if (player.hasPermission("preventspawnerchange.bypass")) return
+
         if (itemMeta !is SpawnEggMeta) return
         if (event.action != Action.RIGHT_CLICK_BLOCK) return
         if (
