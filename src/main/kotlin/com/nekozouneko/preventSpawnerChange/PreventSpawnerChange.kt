@@ -1,14 +1,38 @@
 package com.nekozouneko.preventSpawnerChange
 
+import com.nekozouneko.preventSpawnerChange.listeners.PlayerInteractEvent
+import com.nekozouneko.preventSpawnerChange.manager.CommandManager
+import org.bukkit.Bukkit
 import org.bukkit.plugin.java.JavaPlugin
 
 class PreventSpawnerChange : JavaPlugin() {
+    companion object{
+        lateinit var instance: JavaPlugin
+
+        val isFolia = isClassExists("io.papermc.paper.threadedregions.RegionizedServer") || isClassExists("io.papermc.paper.threadedregions.RegionizedServerInitEvent")
+        private fun isClassExists(clazz: String) : Boolean {
+            try {
+                Class.forName(clazz)
+                return true
+            }catch (_: ClassNotFoundException){
+                return false
+            }
+        }
+    }
 
     override fun onEnable() {
-        // Plugin startup logic
+        instance = this
+        if (isFolia) {
+            logger.warning("[Warning] It appears to be running on Folia.\n" +
+                    "Folia is still experimental and may have errors.")
+        }
+
+        saveDefaultConfig()
+
+        getCommand("preventspawnerchange")?.setExecutor(CommandManager())
+
+        Bukkit.getPluginManager().registerEvents(PlayerInteractEvent(), this)
     }
 
-    override fun onDisable() {
-        // Plugin shutdown logic
-    }
+    override fun onDisable() {}
 }

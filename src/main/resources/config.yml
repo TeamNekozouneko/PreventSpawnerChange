@@ -1,0 +1,11 @@
+# PreventSpawnerChange's configurations
+
+# General Configuration
+preventTypes:
+  spawner: true
+  trialSpawner: true
+
+# Languages
+languages:
+  reloadedConfig: "§a正常にコンフィグをリロードしました。"
+  deniedUse: "§cそのブロックにスポーンエッグを使用することはできません。"
