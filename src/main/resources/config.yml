@@ -1,10 +1,10 @@
-# PreventSpawnerChange's config
+# PreventSpawnerChange's configurations
 
-# Configuration
+# General Configuration
 preventTypes:
   spawner: true
-  trial_spawner: true
+  trialSpawner: true
 
 # Languages
 languages:
-  RELOADED_CONFIG: "§a正常にコンフィグをリロードしました。"
+  reloadedConfig: "§a正常にコンフィグをリロードしました。"
