@@ -3,9 +3,11 @@ package com.nekozouneko.preventSpawnerChange
 import org.bukkit.plugin.java.JavaPlugin
 
 class PreventSpawnerChange : JavaPlugin() {
+    lateinit var instance: JavaPlugin
     val isFolia = isClassExists("io.papermc.paper.threadedregions.RegionizedServer") || isClassExists("io.papermc.paper.threadedregions.RegionizedServerInitEvent")
 
     override fun onEnable() {
+        instance = this
         if (isFolia) {
             logger.warning("[Warning] It appears to be running on Folia.\n" +
                     "Folia is still experimental and may have errors.")
