@@ -1,6 +1,8 @@
 package com.nekozouneko.preventSpawnerChange
 
+import com.nekozouneko.preventSpawnerChange.listeners.PlayerInteractEvent
 import com.nekozouneko.preventSpawnerChange.manager.CommandManager
+import org.bukkit.Bukkit
 import org.bukkit.plugin.java.JavaPlugin
 
 class PreventSpawnerChange : JavaPlugin() {
@@ -28,6 +30,8 @@ class PreventSpawnerChange : JavaPlugin() {
         saveDefaultConfig()
 
         getCommand("preventspawnerchange")?.setExecutor(CommandManager())
+
+        Bukkit.getPluginManager().registerEvents(PlayerInteractEvent(), this)
     }
 
     override fun onDisable() {}
