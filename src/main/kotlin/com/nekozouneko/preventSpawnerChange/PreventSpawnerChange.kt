@@ -12,6 +12,8 @@ class PreventSpawnerChange : JavaPlugin() {
             logger.warning("[Warning] It appears to be running on Folia.\n" +
                     "Folia is still experimental and may have errors.")
         }
+
+        saveDefaultConfig()
     }
 
     override fun onDisable() {}

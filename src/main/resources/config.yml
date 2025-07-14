@@ -1,0 +1,10 @@
+# PreventSpawnerChange's config
+
+# Configuration
+preventTypes:
+  spawner: true
+  trial_spawner: true
+
+# Languages
+languages:
+  RELOADED_CONFIG: "§a正常にコンフィグをリロードしました。"
