@@ -8,4 +8,4 @@ preventTypes:
 # Languages
 languages:
   reloadedConfig: "§a正常にコンフィグをリロードしました。"
-  deniedUse: "§cそのブロックにスポーンエッグを使用することはできません。""
+  deniedUse: "§cそのブロックにスポーンエッグを使用することはできません。"

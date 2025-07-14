@@ -1,5 +1,6 @@
 package com.nekozouneko.preventSpawnerChange.manager
 
+import com.nekozouneko.preventSpawnerChange.PreventSpawnerChange
 import com.nekozouneko.preventSpawnerChange.commands.ReloadCommand
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
@@ -20,9 +21,9 @@ class CommandManager : CommandExecutor, TabExecutor {
     }
 
     override fun onCommand(p0: CommandSender, p1: Command, p2: String, p3: Array<out String>): Boolean {
-        if (p3.size <= 1) return false
-        if (!commands.containsKey(p3[1])) return false
-        val subCommand = commands[p3[1]] ?: return false
+        if (p3.isEmpty()) return false
+        if (!commands.containsKey(p3[0])) return false
+        val subCommand = commands[p3[0]] ?: return false
         return subCommand.handle(p0, p1, p2, p3)
     }
 
@@ -32,6 +33,7 @@ class CommandManager : CommandExecutor, TabExecutor {
         p2: String,
         p3: Array<out String>
     ): MutableList<String>? {
-        return commands.keys.toMutableList()
+        if(p3.size == 1) return commands.keys.toMutableList()
+        return mutableListOf()
     }
 }
