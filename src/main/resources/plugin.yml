@@ -1,0 +1,4 @@
+name: PreventSpawnerChange
+version: '1.0-SNAPSHOT'
+main: com.nekozouneko.preventSpawnerChange.PreventSpawnerChange
+api-version: '1.21'
